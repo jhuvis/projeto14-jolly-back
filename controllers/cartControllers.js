@@ -23,17 +23,17 @@ export async function cart(req, res){
 };
 
 export async function updateCart(req, res){
-    const { name, quantity } = req.body;
+    const { _id, quantity } = req.body;
   
   
     try {
-      const cart = await db.collection('cart').findOne({userId: new ObjectId(res.locals.user._id), name: name })
+      const cart = await db.collection('cart').findOne({userId: new ObjectId(res.locals.user._id), _id: new ObjectId(_id) });
   
       if (!cart) {
         return res.sendStatus(404);
       }
       
-      await db.collection('cart').updateOne({_id: cart._id}, {$set: { quantity }})
+      await db.collection('cart').updateOne({_id: cart._id}, {$set: { quantity }});
   
       return res.sendStatus(200);
   
