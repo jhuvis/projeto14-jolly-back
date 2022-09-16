@@ -5,10 +5,8 @@ export default async function mongo() {
     try {
         dotenv.config();
         const mongoClient = new MongoClient(process.env.MONGO_URI);
-        console.log(process.env.MONGO_URI);
         let db;
         db = await mongoClient.db(process.env.DB_NAME);
-        console.log(process.env.DB_NAME);
         return db;
     } catch (error) {}
 }

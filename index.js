@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import authRoutes from './routes/authRoutes.js';
+import appRoutes from './routes/appRoutes.js';
 import cartRoutes from './routes/cartRoutes.js';
 
 const app = express();
@@ -10,6 +11,7 @@ app.use(express.json());
 
 const router = express.Router();
 router.use(authRoutes);
+router.use(appRoutes);
 router.use(cartRoutes);
 
 
