@@ -45,7 +45,6 @@ export async function updateCart(req, res){
 
 export async function deleteCart(req, res){
     const _id  = req.body._id;
-    console.log(_id);
   
     try {
         await db.collection('cart').deleteOne({ _id: new ObjectId(_id) })
