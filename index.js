@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import authRoutes from './routes/authRoutes.js';
 import appRoutes from './routes/appRoutes.js';
 import cartRoutes from './routes/cartRoutes.js';
+import checkRoutes from './routes/checkRoutes.js'; 
 
 const app = express();
 app.use(cors());
@@ -13,6 +14,7 @@ const router = express.Router();
 router.use(authRoutes);
 router.use(appRoutes);
 router.use(cartRoutes);
+router.use(checkRoutes);
 
 
 

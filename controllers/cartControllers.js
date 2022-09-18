@@ -47,7 +47,7 @@ export async function deleteCart(req, res){
     const _id  = req.body._id;
   
     try {
-        await db.collection('cart').deleteOne({ _id: new ObjectId(_id) })
+        await db.collection('cart').deleteOne({ _id: new ObjectId(_id) });
     
         return res.sendStatus(200);
       } catch (error) {
