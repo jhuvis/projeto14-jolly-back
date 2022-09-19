@@ -6,13 +6,9 @@ let db = await mongo();
 
 export async function cart(req, res){
     try {
-        const token = req.headers.authorization?.replace('Bearer ', '');
-        const session = await db.collection("sessions").findOne({ token : token }); 
-        const user = await db.collection("users").findOne({ _id: new ObjectId(session.userId )});
-        delete user.password;
 
         const carts = await db.collection('cart').find({
-            userId : new ObjectId(user._id)
+            userId : new ObjectId(res.locals.user._id)
           }).toArray();
         if (!carts) 
         {
