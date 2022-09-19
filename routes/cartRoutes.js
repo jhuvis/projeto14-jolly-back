@@ -4,7 +4,7 @@ import auth from '../middlewares/authorizationMiddleware.js';
 
 
 const authRoutes = express.Router();
-authRoutes.get("/cart", auth, cart); 
+authRoutes.get("/cart", cart); 
 authRoutes.put("/update-cart", auth, updateCart); 
 authRoutes.put("/delete-cart", auth, deleteCart);
 
